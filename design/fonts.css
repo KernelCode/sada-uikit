@@ -1,0 +1,81 @@
+/**
+ * Self-hosted fonts for the SADA kit (a thmanyah.com-style media platform).
+ *
+ *  • IBM Plex Sans Arabic  → UI / body  (the face used across the live site)
+ *  • Thmanyah Sans         → display / headings (thmanyah's own type, font.thmanyah.com)
+ *  • Thmanyah Serif Display→ editorial showpiece headings
+ *
+ * The Thmanyah faces are distributed publicly at https://font.thmanyah.com.
+ * woff2 files live in react/public/fonts and are served from /fonts/*.
+ */
+
+/* ---- IBM Plex Sans Arabic (UI + body) ------------------------------------ */
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-arabic-300.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-arabic-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-arabic-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-arabic-600.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-arabic-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ---- Thmanyah Sans (display / headings) ---------------------------------- */
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("/fonts/thmanyah-sans-300.woff2") format("woff2");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("/fonts/thmanyah-sans-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("/fonts/thmanyah-sans-500.woff2") format("woff2");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("/fonts/thmanyah-sans-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Sans";
+  src: url("/fonts/thmanyah-sans-900.woff2") format("woff2");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+/* ---- Thmanyah Serif Display (editorial showpiece) ------------------------ */
+@font-face {
+  font-family: "Thmanyah Serif";
+  src: url("/fonts/thmanyah-serif-display-400.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Serif";
+  src: url("/fonts/thmanyah-serif-display-700.woff2") format("woff2");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Thmanyah Serif";
+  src: url("/fonts/thmanyah-serif-display-900.woff2") format("woff2");
+  font-weight: 900; font-style: normal; font-display: swap;
+}

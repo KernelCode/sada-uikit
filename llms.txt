@@ -1,36 +1,105 @@
-# base — the uikit.studio starter canvas
+# Sada (صدى) — editorial audio & video media-platform UI kit
 
-> A neutral, runnable canvas for building a new uikit.studio UI kit. Not a finished
-> design — it is the plumbing (routing, i18n + RTL, dark mode, a token system,
-> primitive components) wired up so you can paint a brand-new kit on top.
+> A warm, Arabic-first publishing kit: cream paper, ink-black type, a hot-orange
+> accent and a mustard "subscribe" gold. IBM Plex Sans Arabic for UI, the Thmanyah
+> Sans/Serif display faces for headings. Full RTL + dark mode. Built for podcasts,
+> documentaries, newsletters and longreads — dense editorial card grids, no stock photos.
 
-This file is **agent-readable**. Unlike a finished kit, base has **no design to copy** —
-its job is to be *built into* one.
+This file is **agent-readable**: it is enough to reproduce the design. Pair it with
+`design/tokens.json` (machine-readable tokens) and `uikit.json` (the surface manifest).
 
-## If a developer asked you to build a kit here
-1. Read **[`prompts/build.md`](./prompts/build.md)** — the spec for *how* to build it the
-   uikit way (original · full design system · full landing + dense dashboard · responsive ·
-   EN/AR + RTL + dark · every value defined in tokens + README + `uikit.json`).
-2. Read **[`AGENTS.md`](./AGENTS.md)** — the short version of the same rules.
-3. Work theme-first: `design/theme.css` (Tailwind v4 `@theme`) + `design/tokens.json` →
-   components in `react/src/components/` → pages in `react/src/routes/*`.
+## Mood
+Editorial newsroom meets podcast network. Calm cream background, confident black
+display type, one loud orange for links/CTAs and a gold accent kept only for the
+subscribe action. Podcast/newsletter art is **typographic** — the show name set big on
+a tinted colour ground (see `components/cover.tsx` + `lib/tones.ts`).
 
-## What you must output (agent-ready by default)
-The finished kit must itself be agent-ready, so other developers can reproduce it by URL:
-- `AGENTS.md` + `llms.txt` at the repo root (this scaffold drops starters in place).
-- `uikit.json` describing the real surface; `npx uikit-studio validate` passing.
-- When listed on uikit.studio, the gallery generates `/kit/<id>/llms.txt` + `/manifest.json`
-  from your entry — enabling *"build me a website with this design: uikit.studio/kit/<id>"*.
+## Fonts (self-hosted, `react/public/fonts/`, declared in `design/fonts.css`)
+| Role            | Family                  | Weights            | Use                          |
+|-----------------|-------------------------|--------------------|------------------------------|
+| `--font-sans`   | IBM Plex Sans Arabic    | 300/400/500/600/700| UI, body, captions           |
+| `--font-display`| Thmanyah Sans           | 300/400/500/700/900| headings, wordmark, covers   |
+| `--font-serif`  | Thmanyah Serif          | 400/700/900        | editorial showpiece headings |
 
-## How this base is wired
-- `design/theme.css` — Tailwind v4 `@theme` tokens (light), `.dark` block, `[dir=rtl]` font swap.
-- `design/tokens.json` — the same tokens in W3C DTCG form (keep in sync).
-- `react/src/{i18n,lib,components,blocks,routes}/` — provider, `cn`, primitives, sections, pages.
+Thmanyah faces are distributed publicly at font.thmanyah.com; IBM Plex Sans Arabic is
+open source (OFL). All are bundled as woff2 and served from `/fonts/*`.
 
-## Start
+## Color — light (default)
+| Token                  | Value     |
+|------------------------|-----------|
+| background             | `#f6f4ee` |
+| foreground             | `#15110c` |
+| card                   | `#ffffff` |
+| muted                  | `#ece8df` |
+| muted-foreground       | `#6f675b` |
+| border                 | `#e2ddd2` |
+| primary (ink buttons)  | `#15110c` |
+| primary-foreground     | `#f6f4ee` |
+| accent (links/CTA)     | `#fa541c` |
+| ink (dark sections)    | `#15110c` |
+| ink-foreground         | `#f4efe6` |
+| gold (subscribe)       | `#e3b23c` |
+| success                | `#2f9e44` |
+
+## Color — dark (`.dark`)
+| Token            | Value     |
+|------------------|-----------|
+| background       | `#14110c` |
+| foreground       | `#f4efe6` |
+| card             | `#1d1813` |
+| muted            | `#261f17` |
+| muted-foreground | `#a89e8f` |
+| border           | `#322a20` |
+| primary          | `#f4efe6` |
+| accent           | `#fd6f3a` |
+| ink              | `#0c0a07` |
+
+## Brand scale (orange)
+`50 #fff3ed · 100 #ffe2d3 · 200 #ffc2a6 · 300 #ff9a6f · 400 #fd6f3a · 500 #fa541c ·
+600 #e23d0a · 700 #b62f09 · 800 #8f2710 · 900 #74230f`
+
+## Cover tones (`lib/tones.ts`)
+`ink · gold · green · darkgreen · cream · sand · card · mint · pink · orange · lime · redink`
+— each a bg/fg pair used for typographic show art.
+
+## Radius & shadow
+`sm .5rem · md/DEFAULT .75rem · lg 1.25rem · xl 1.75rem · 2xl 2.25rem`.
+`--shadow-card` (subtle lift) and `--shadow-pop` (overlays). Buttons are full pills.
+
+## Components (`react/src/components/`)
+- **Button** — variants `primary · accent · gold · ink · outline · ghost · link`;
+  sizes `sm · md · lg · icon`; hover/active/focus-ring/disabled.
+- **Badge** — `neutral · accent · soft · gold · ink · success · outline`.
+- **Input** — pill text field, focus → primary border.
+- **Card** + `CardHeader/Title/Description/Content`.
+- **Container** — centered max-w-6xl page gutter.
+- **Cover** — typographic show/newsletter art (square or 16:9, tone + optional corner badge).
+
+## Blocks (`react/src/blocks/`)
+- **Wordmark** — the "صدى / Sada" logotype (orange diacritic dot + display face).
+- **SectionHeader** — icon + title with a "more →" link (RTL-aware arrow).
+- **Footer** — ink footer: wordmark, tagline, Explore/Company/Legal columns.
+
+## Pages (`react/src/routes/`)
+- **Home `/`** — ink promo hero with a colour-tile grid; featured lead + side stories;
+  "New episodes" cover grid + feature rows; "Featured newsletters" tile row;
+  "New documentaries" 16:9 cards; "New articles" two-column list; ink footer.
+- **Articles `/articles`** — category filter chips + a fuller article list.
+- **Podcasts `/podcasts`** — a feature show banner + a show grid with play affordances.
+- **Components `/components`** — the design system: swatches, brand scale, type scale,
+  the three fonts, every Button/Badge/Input variant, and the cover tones.
+
+## Tech
+React 19 + Vite + react-router, Tailwind v4 (`@theme` in `design/theme.css`),
+class-variance-authority, lucide-react icons. EN + AR via a small i18n provider that
+flips `dir`/`lang`; dark mode via a `.dark` class on `<html>`.
+
+## Reproduce
 ```bash
-npx uikit-studio new https://github.com/uikit-studio/base-uikit my-kit
-cd my-kit/react && pnpm install && pnpm dev
+cd react && pnpm install && pnpm dev   # http://localhost:5173
+npx uikit-studio validate              # repo root → "Sada v1.0.0 · react"
 ```
+All content in `react/src/i18n/*` is original placeholder copy — invent your own; keep
+the tokens, fonts, and component language.
 
 Gallery: <https://uikit.studio> · Submit: <https://uikit.studio/submit>
