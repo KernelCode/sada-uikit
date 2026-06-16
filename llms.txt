@@ -1,0 +1,36 @@
+# base — the uikit.studio starter canvas
+
+> A neutral, runnable canvas for building a new uikit.studio UI kit. Not a finished
+> design — it is the plumbing (routing, i18n + RTL, dark mode, a token system,
+> primitive components) wired up so you can paint a brand-new kit on top.
+
+This file is **agent-readable**. Unlike a finished kit, base has **no design to copy** —
+its job is to be *built into* one.
+
+## If a developer asked you to build a kit here
+1. Read **[`prompts/build.md`](./prompts/build.md)** — the spec for *how* to build it the
+   uikit way (original · full design system · full landing + dense dashboard · responsive ·
+   EN/AR + RTL + dark · every value defined in tokens + README + `uikit.json`).
+2. Read **[`AGENTS.md`](./AGENTS.md)** — the short version of the same rules.
+3. Work theme-first: `design/theme.css` (Tailwind v4 `@theme`) + `design/tokens.json` →
+   components in `react/src/components/` → pages in `react/src/routes/*`.
+
+## What you must output (agent-ready by default)
+The finished kit must itself be agent-ready, so other developers can reproduce it by URL:
+- `AGENTS.md` + `llms.txt` at the repo root (this scaffold drops starters in place).
+- `uikit.json` describing the real surface; `npx uikit-studio validate` passing.
+- When listed on uikit.studio, the gallery generates `/kit/<id>/llms.txt` + `/manifest.json`
+  from your entry — enabling *"build me a website with this design: uikit.studio/kit/<id>"*.
+
+## How this base is wired
+- `design/theme.css` — Tailwind v4 `@theme` tokens (light), `.dark` block, `[dir=rtl]` font swap.
+- `design/tokens.json` — the same tokens in W3C DTCG form (keep in sync).
+- `react/src/{i18n,lib,components,blocks,routes}/` — provider, `cn`, primitives, sections, pages.
+
+## Start
+```bash
+npx uikit-studio new https://github.com/uikit-studio/base-uikit my-kit
+cd my-kit/react && pnpm install && pnpm dev
+```
+
+Gallery: <https://uikit.studio> · Submit: <https://uikit.studio/submit>

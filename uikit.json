@@ -1,0 +1,67 @@
+{
+  "$schema": "https://uikit.dev/schema/v1.json",
+  "manifestVersion": 1,
+  "id": "base",
+  "name": "Base",
+  "version": "1.0.0",
+  "description": "A neutral canvas for building uikit.studio kits — plumbing only (design tokens, dark mode, EN/AR + RTL). Bring your own design via prompts/build.md.",
+  "author": { "name": "UIKit Team", "github": "uikit-studio", "url": "https://uikit.studio" },
+  "license": "MIT",
+  "homepage": "https://uikit.studio",
+  "repository": "https://github.com/uikit-studio/base-uikit",
+
+  "categories": ["starter", "template"],
+  "tags": ["base", "starter", "canvas"],
+
+  "tech": {
+    "frameworks": ["react"],
+    "styling": "both",
+    "tailwindVersion": "^4.0.0",
+    "icons": "lucide",
+    "deps": ["class-variance-authority", "clsx", "tailwind-merge"]
+  },
+
+  "design": {
+    "tokens": "design/tokens.json",
+    "tailwindPreset": "design/tailwind-preset.js",
+    "themeCss": "design/theme.css",
+    "fonts": [{ "family": "Inter", "source": "google" }],
+    "palettes": [{ "name": "default", "primary": "#14141a" }],
+    "modes": ["light", "dark"]
+  },
+
+  "surface": {
+    "components": [
+      { "name": "Button", "react": "react/src/components/button.tsx" },
+      { "name": "Card", "react": "react/src/components/card.tsx" },
+      { "name": "Input", "react": "react/src/components/input.tsx" },
+      { "name": "Badge", "react": "react/src/components/badge.tsx" },
+      { "name": "Container", "react": "react/src/components/container.tsx" }
+    ],
+    "templates": [
+      { "name": "Landing", "route": "/", "preview": "screenshots/landing.svg" },
+      { "name": "Pricing", "route": "/pricing" },
+      { "name": "Dashboard", "route": "/dashboard" },
+      { "name": "Showcase", "route": "/components" }
+    ]
+  },
+
+  "prompts": {
+    "origin": "prompts/build.md",
+    "extend": "prompts/extend.md",
+    "skillVersion": "uikit-standard@1.0"
+  },
+
+  "media": {
+    "demoUrl": "https://uikit.studio",
+    "screenshots": [
+      { "kind": "logo", "src": "screenshots/logo.svg" },
+      { "kind": "landing", "src": "screenshots/landing.svg" }
+    ]
+  },
+
+  "registry": {
+    "install": "npx uikit-studio new https://github.com/uikit-studio/base-uikit my-kit",
+    "components": "registry/index.json"
+  }
+}
