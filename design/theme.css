@@ -1,71 +1,89 @@
 /**
- * BASE — a neutral Tailwind v4 canvas. This is NOT a finished design: it is the
- * plumbing (tokens, light/dark, RTL) wired up so an AI editor can paint a brand
- * new kit on top. REPLACE every value below with YOUR kit's identity — do not
- * ship the greyscale defaults. See prompts/build.md.
+ * SADA — a warm, editorial media-platform kit (thmanyah.com-style).
+ * Cream paper background, ink-black type, a hot-orange accent, and a mustard
+ * "subscribe" gold. IBM Plex Sans Arabic for UI, Thmanyah Sans/Serif for display.
+ * Light + dark, full RTL.
  */
+@import "./fonts.css";
+
 @theme {
-  /* TODO(kit): pick a display + body + mono face that fit the brief. */
-  --font-display: "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Thmanyah Sans", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-serif: "Thmanyah Serif", "Thmanyah Sans", Georgia, serif;
+  --font-mono: "IBM Plex Sans Arabic", ui-monospace, SFMono-Regular, monospace;
 
-  /* TODO(kit): replace the greyscale brand scale with your hue. */
-  --color-brand-50: #f7f7f8;
-  --color-brand-100: #ededf0;
-  --color-brand-200: #d8d8de;
-  --color-brand-300: #b9b9c3;
-  --color-brand-400: #8e8e9c;
-  --color-brand-500: #6b6b7b;
-  --color-brand-600: #4a4a57;
-  --color-brand-700: #2e2e38;
+  /* Brand — hot editorial orange (#fa541c family) */
+  --color-brand-50: #fff3ed;
+  --color-brand-100: #ffe2d3;
+  --color-brand-200: #ffc2a6;
+  --color-brand-300: #ff9a6f;
+  --color-brand-400: #fd6f3a;
+  --color-brand-500: #fa541c;
+  --color-brand-600: #e23d0a;
+  --color-brand-700: #b62f09;
+  --color-brand-800: #8f2710;
+  --color-brand-900: #74230f;
 
-  /* light theme — TODO(kit): set your background/foreground/accent. */
-  --color-background: #ffffff;
-  --color-foreground: #14141a;
+  /* Gold — the "subscribe" accent */
+  --color-gold-300: #f0cf7a;
+  --color-gold-500: #e3b23c;
+  --color-gold-700: #b8861f;
+
+  /* light theme — cream paper */
+  --color-background: #f6f4ee;
+  --color-foreground: #15110c;
   --color-card: #ffffff;
-  --color-muted: #f3f3f5;
-  --color-muted-foreground: #6b6b7b;
-  --color-border: #e6e6ea;
-  --color-primary: #14141a;
-  --color-primary-foreground: #ffffff;
-  --color-ink: #14141a; /* dark sections on a light page */
-  --color-ink-foreground: #ffffff;
-  --color-mark: #ffe27a; /* highlight-marker background (give it your accent) */
-  --color-mark-foreground: #14141a;
-  --color-success: #16a34a;
+  --color-muted: #ece8df;
+  --color-muted-foreground: #6f675b;
+  --color-border: #e2ddd2;
+  --color-primary: #15110c;          /* ink buttons, like the live site */
+  --color-primary-foreground: #f6f4ee;
+  --color-accent: #fa541c;           /* links + active highlights */
+  --color-accent-foreground: #ffffff;
+  --color-ink: #15110c;              /* dark sections on cream */
+  --color-ink-foreground: #f4efe6;
+  --color-mark: #fa541c;
+  --color-mark-foreground: #ffffff;
+  --color-success: #2f9e44;
+  --color-gold: #e3b23c;
+  --color-gold-foreground: #15110c;
 
-  /* Radius scale — documented + used from JSX via rounded-[var(--radius-*)].
-     (Tailwind v4: rounded-[--radius] is a no-op and renders square — use var().) */
+  /* Radius scale */
   --radius-sm: 0.5rem;
-  --radius-md: 0.875rem;
-  --radius: 0.875rem; /* alias of -md */
+  --radius-md: 0.75rem;
+  --radius: 0.75rem;
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
-  --shadow-card: 0 18px 40px -24px rgba(20, 20, 26, 0.25);
+  --radius-2xl: 2.25rem;
+
+  --shadow-card: 0 1px 2px rgba(21, 17, 12, 0.04), 0 8px 24px -16px rgba(21, 17, 12, 0.18);
+  --shadow-pop: 0 24px 60px -28px rgba(21, 17, 12, 0.45);
 }
 
 @layer base {
   .dark {
-    /* TODO(kit): tune the dark palette — every token flips here. */
-    --color-background: #0c0c10;
-    --color-foreground: #f2f2f5;
-    --color-card: #15151b;
-    --color-muted: #1b1b22;
-    --color-muted-foreground: #9b9bab;
-    --color-border: #26262f;
-    --color-primary: #f2f2f5;
-    --color-primary-foreground: #0c0c10;
-    --color-ink: #08080b;
-    --color-ink-foreground: #f2f2f5;
-    --color-mark: #ffe27a;
-    --color-mark-foreground: #14141a;
+    --color-background: #14110c;
+    --color-foreground: #f4efe6;
+    --color-card: #1d1813;
+    --color-muted: #261f17;
+    --color-muted-foreground: #a89e8f;
+    --color-border: #322a20;
+    --color-primary: #f4efe6;
+    --color-primary-foreground: #14110c;
+    --color-accent: #fd6f3a;
+    --color-accent-foreground: #14110c;
+    --color-ink: #0c0a07;
+    --color-ink-foreground: #f4efe6;
+    --color-mark: #fd6f3a;
+    --color-mark-foreground: #14110c;
+    --color-gold: #e3b23c;
+    --color-gold-foreground: #14110c;
   }
 
-  /* TODO(kit): pick an Arabic typeface (self-host or Google) and swap here. */
+  /* Arabic + RTL leans on IBM Plex Sans Arabic (the live-site UI face). */
   [dir="rtl"] {
-    --font-display: "Cairo", "Inter", sans-serif;
-    --font-sans: "Cairo", "Inter", sans-serif;
+    --font-sans: "IBM Plex Sans Arabic", system-ui, sans-serif;
+    --font-display: "Thmanyah Sans", "IBM Plex Sans Arabic", sans-serif;
   }
 
   html {
@@ -73,14 +91,16 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 }
 
-/* A highlight-marker utility (give it personality with your --color-mark). */
+/* Marker highlight — used on a word or two, like editorial pull-quotes. */
 @utility mark {
   background-color: var(--color-mark);
   color: var(--color-mark-foreground);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   padding: 0 0.18em;
+  border-radius: 0.12em;
 }

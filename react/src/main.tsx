@@ -5,8 +5,8 @@ import "./app.css";
 import { I18nProvider } from "./i18n";
 import { Layout } from "./routes/layout";
 import { Landing } from "./routes/landing";
-import { Pricing } from "./routes/pricing";
-import { Dashboard } from "./routes/dashboard";
+import { Articles } from "./routes/articles";
+import { Podcasts } from "./routes/podcasts";
 import { Showcase } from "./routes/showcase";
 
 const router = createBrowserRouter(
@@ -15,14 +15,13 @@ const router = createBrowserRouter(
       element: <Layout />,
       children: [
         { path: "/", element: <Landing /> },
-        { path: "/pricing", element: <Pricing /> },
-        { path: "/dashboard", element: <Dashboard /> },
+        { path: "/articles", element: <Articles /> },
+        { path: "/podcasts", element: <Podcasts /> },
         { path: "/components", element: <Showcase /> },
       ],
     },
   ],
-  // Works at "/" in dev and under any subpath (e.g. /demos/your-kit/) when built
-  // with `vite build --base=/demos/your-kit/`.
+  // Works at "/" in dev and under any subpath when built with --base=.
   { basename: import.meta.env.BASE_URL },
 );
 

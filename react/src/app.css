@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "../../design/theme.css";
 
-body {
-  margin: 0;
+@layer base {
+  body {
+    margin: 0;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: #fff;
+  }
 }
