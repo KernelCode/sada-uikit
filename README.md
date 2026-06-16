@@ -5,6 +5,12 @@ kit. Not a finished design — it's the plumbing (routing, **i18n + RTL**, dark 
 a **token system**, primitive components) wired up so you (and your AI editor) can
 paint a brand‑new kit on top. Pair it with a prompt; the look is yours.
 
+## Preview
+
+<video src="https://github.com/KernelCode/sada-uikit/raw/main/screenshots/preview.webm" poster="https://github.com/KernelCode/sada-uikit/raw/main/screenshots/landing.png" muted loop playsinline width="100%"></video>
+
+> Video not playing? [▶ Watch the preview ↗](https://github.com/KernelCode/sada-uikit/raw/main/screenshots/preview.webm) · [screenshot ↗](./screenshots/landing.png) · [live demo ↗](https://uikit.studio/demos/sada/)
+
 ```bash
 npx uikit-studio new https://github.com/uikit-studio/base-uikit my-kit
 cd my-kit/react && pnpm install && pnpm dev
