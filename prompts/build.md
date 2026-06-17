@@ -127,7 +127,12 @@ Everything reads from the tokens, so **theme first**: set the palette + fonts in
 3. Landing and dashboard are both *full* screens (see above) — not placeholders.
 4. EN + AR + RTL + dark all correct.
 5. `npx uikit-studio validate` passes; `uikit.json` describes the real surface.
-6. Authored screenshots (`screenshots/landing.png`, `dashboard.png`, `components.png`).
+6. Authored screenshots + preview clip, all **4:3** at **1200×900** (capture @2x →
+   2400×1800). `screenshots/preview.webm` is the gallery clip; `landing.png` is its
+   **poster** (the README and gallery card embed `landing.png` over `preview.webm`,
+   so it MUST share the 4:3 aspect — a mismatched poster gets `object-fit: cover`
+   cropped, which clips the right-aligned headline in RTL). `dashboard.png` and
+   `components.png` complete the set. Capture with the demo seeded to Arabic (RTL).
 7. Agent-ready: `AGENTS.md` + `llms.txt` at the repo root, in sync with `design/`.
 
 Then ship it: see [`prompts/extend.md`](./extend.md) to grow it, and
