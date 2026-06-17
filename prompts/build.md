@@ -132,7 +132,10 @@ Everything reads from the tokens, so **theme first**: set the palette + fonts in
    **poster** (the README and gallery card embed `landing.png` over `preview.webm`,
    so it MUST share the 4:3 aspect — a mismatched poster gets `object-fit: cover`
    cropped, which clips the right-aligned headline in RTL). `dashboard.png` and
-   `components.png` complete the set. Capture with the demo seeded to Arabic (RTL).
+   `components.png` complete the set. Capture with the demo seeded to Arabic (RTL),
+   and only **after the page is fully loaded** — warm the font cache and await
+   `document.fonts.ready` before shooting, and trim the clip's blank mount lead-in
+   — so previews never open on a flash of unstyled text or a half-loaded page.
 7. Agent-ready: `AGENTS.md` + `llms.txt` at the repo root, in sync with `design/`.
 
 Then ship it: see [`prompts/extend.md`](./extend.md) to grow it, and
