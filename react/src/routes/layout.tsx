@@ -49,28 +49,12 @@ export function Layout() {
     <div className="flex min-h-screen flex-col bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
         <Container className="flex h-16 items-center justify-between gap-3">
-          {/* right (RTL) cluster: actions */}
+          {/* brand + toggles — start side (RTL: right, LTR: left). Wordmark first
+              so it sits at the very edge in both directions. */}
           <div className="flex items-center gap-2">
-            <Button size="sm" variant="ghost" className="hidden text-foreground/70 sm:inline-flex">
-              {t.nav.login}
-            </Button>
-            <Button size="sm" variant="gold" className="gap-1.5">
-              <span aria-hidden>✦</span>
-              {t.nav.subscribe}
-            </Button>
-            <button
-              className="grid h-9 w-9 place-items-center rounded-full text-foreground/70 hover:bg-muted"
-              aria-label={t.nav.search}
-            >
-              <Search className="h-[18px] w-[18px]" />
-            </button>
-          </div>
-
-          {/* center nav */}
-          <nav className="hidden items-center gap-1 lg:flex">{links.map(([to, l]) => navItem(to, l))}</nav>
-
-          {/* left (RTL) cluster: brand + toggles */}
-          <div className="flex items-center gap-2">
+            <NavLink to="/" className="text-2xl">
+              <Wordmark />
+            </NavLink>
             <div className="hidden items-center rounded-full border border-border p-0.5 text-xs font-semibold md:flex">
               <button
                 onClick={() => setLang("ar")}
@@ -92,15 +76,32 @@ export function Layout() {
             >
               {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </button>
-            <NavLink to="/" className="text-2xl">
-              <Wordmark />
-            </NavLink>
             <button
               onClick={() => setMenu((m) => !m)}
               className="grid h-9 w-9 place-items-center rounded-full border border-border lg:hidden"
               aria-label="Menu"
             >
               {menu ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
+          </div>
+
+          {/* center nav */}
+          <nav className="hidden items-center gap-1 lg:flex">{links.map(([to, l]) => navItem(to, l))}</nav>
+
+          {/* actions — end side (RTL: left, LTR: right) */}
+          <div className="flex items-center gap-2">
+            <Button size="sm" variant="ghost" className="hidden text-foreground/70 sm:inline-flex">
+              {t.nav.login}
+            </Button>
+            <Button size="sm" variant="gold" className="gap-1.5">
+              <span aria-hidden>✦</span>
+              {t.nav.subscribe}
+            </Button>
+            <button
+              className="grid h-9 w-9 place-items-center rounded-full text-foreground/70 hover:bg-muted"
+              aria-label={t.nav.search}
+            >
+              <Search className="h-[18px] w-[18px]" />
             </button>
           </div>
         </Container>
