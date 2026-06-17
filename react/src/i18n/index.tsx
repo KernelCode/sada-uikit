@@ -16,8 +16,10 @@ const I18nContext = createContext<I18nValue | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(() => {
-    if (typeof localStorage === "undefined") return "en";
-    return (localStorage.getItem("base-lang") as Lang) ?? "en";
+    // Sada is an Arabic-first kit, so Arabic (+ RTL) is the default; visitors
+    // can switch to English, and the choice persists in localStorage.
+    if (typeof localStorage === "undefined") return "ar";
+    return (localStorage.getItem("base-lang") as Lang) ?? "ar";
   });
   const dir = lang === "ar" ? "rtl" : "ltr";
 
