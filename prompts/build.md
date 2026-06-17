@@ -126,7 +126,7 @@ Everything reads from the tokens, so **theme first**: set the palette + fonts in
 2. Full design system: light **and** dark, full type scale, every component + states.
 3. Landing and dashboard are both *full* screens (see above) — not placeholders.
 4. EN + AR + RTL + dark all correct.
-5. `npx uikit-studio validate` passes; `uikit.json` describes the real surface.
+5. `npx uikit-cli validate` passes; `uikit.json` describes the real surface.
 6. Authored screenshots + preview clip, all **4:3** at **1200×900** (capture @2x →
    2400×1800). `screenshots/preview.webm` is the gallery clip; `landing.png` is its
    **poster** (the README and gallery card embed `landing.png` over `preview.webm`,

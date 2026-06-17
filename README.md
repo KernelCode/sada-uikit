@@ -12,7 +12,7 @@ paint a brand‑new kit on top. Pair it with a prompt; the look is yours.
 > Video not playing? [▶ Watch the preview ↗](https://github.com/KernelCode/sada-uikit/raw/main/screenshots/preview.webm) · [screenshot ↗](./screenshots/landing.png) · [live demo ↗](https://uikit.studio/demos/sada/)
 
 ```bash
-npx uikit-studio new https://github.com/uikit-studio/base-uikit my-kit
+npx uikit-cli new https://github.com/uikit-studio/base-uikit my-kit
 cd my-kit/react && pnpm install && pnpm dev
 ```
 
@@ -72,7 +72,7 @@ keep them in sync with `design/` as you build. Once listed, the gallery also gen
 
 ## Then ship it
 
-`npx uikit-studio validate` → push your repo → open a PR to list it at
+`npx uikit-cli validate` → push your repo → open a PR to list it at
 <https://uikit.studio/submit>.
 
 ---

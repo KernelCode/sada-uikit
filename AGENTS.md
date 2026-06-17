@@ -47,7 +47,7 @@ react/src/
 ## Run
 ```bash
 cd react && pnpm install && pnpm dev   # http://localhost:5173
-npx uikit-studio validate              # from the repo root
+npx uikit-cli validate              # from the repo root
 ```
 
 Gallery: <https://uikit.studio> · Submit: <https://uikit.studio/submit>

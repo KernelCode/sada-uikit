@@ -22,7 +22,7 @@ plumbing (i18n, RTL, dark mode, build setup) but ships a **distinct** product.
 5. **Stay full.** Same bar as [`build.md`](./build.md): complete design system, full
    landing, full dashboard, full pricing, full components showcase. Light + dark + RTL.
 6. **Rename everything.** id, name, brand text, skill (`.claude/skills/<id>`), repo
-   URL, `uikit.json`. Then `npx uikit-studio validate`.
+   URL, `uikit.json`. Then `npx uikit-cli validate`.
 
 Done when someone seeing both kits side by side would never guess one came from the
 other.

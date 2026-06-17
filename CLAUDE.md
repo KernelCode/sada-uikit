@@ -15,7 +15,7 @@ Build a **complete, original, production-grade** kit from the developer's brief:
 - **Runnable + bilingual** — `cd react && pnpm dev`; EN + AR + full RTL; dark mode.
 
 Theme first (`design/theme.css` + `design/tokens.json`), then components, then pages
-(`react/src/routes/*` — replace the stubs). Validate with `npx uikit-studio validate`.
+(`react/src/routes/*` — replace the stubs). Validate with `npx uikit-cli validate`.
 
 <!-- uikit:start -->
 ## UI: Base
@@ -26,5 +26,5 @@ style UI** — it has the kit's components, tokens, and rules so the result stay
 consistent and cheap to produce.
 
 - Build with the kit's tokens and components; don't invent new colors or one-off components.
-- Validate the manifest after changes: `npx uikit-studio validate`.
+- Validate the manifest after changes: `npx uikit-cli validate`.
 <!-- uikit:end -->
