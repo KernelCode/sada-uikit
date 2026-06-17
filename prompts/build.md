@@ -137,6 +137,14 @@ Everything reads from the tokens, so **theme first**: set the palette + fonts in
    `document.fonts.ready` before shooting, and trim the clip's blank mount lead-in
    — so previews never open on a flash of unstyled text or a half-loaded page.
 7. Agent-ready: `AGENTS.md` + `llms.txt` at the repo root, in sync with `design/`.
+8. **Bilingual registry copy.** In your gallery entry JSON, the display fields
+   `name`, `tagline` and `description` may each be a plain string **or** a
+   `{ "en": "…", "ar": "…" }` object. A string is shown in both locales; the
+   object lets an Arabic visitor read Arabic on the gallery card and detail page
+   (the site is Arabic-first). `en` is required and is the canonical/fallback —
+   it's what the agent spec (`llms.txt`, `manifest.json`) and SEO always use.
+   Translate `tagline` + `description` (and `name` if it has an Arabic form, e.g.
+   `{ "en": "Sada", "ar": "صدى" }`); leave a Latin brand name as a plain string.
 
 Then ship it: see [`prompts/extend.md`](./extend.md) to grow it, and
 <https://uikit.studio/submit> to list it.
